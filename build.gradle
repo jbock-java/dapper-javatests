@@ -25,10 +25,11 @@ javadoc {
 repositories {
     mavenCentral()
     maven { url 'https://s01.oss.sonatype.org/content/repositories/iogithubjbock-java-1078' }
+    maven { url 'https://s01.oss.sonatype.org/content/repositories/iogithubjbock-java-1079' }
 }
 
 dependencies {
-    def core = 'io.github.jbock-java:dapper:1.0'
+    def core = 'io.github.jbock-java:dapper:1.1'
     def compiler = 'io.github.jbock-java:dapper-compiler:1.1-staging-4'
     implementation(core)
     annotationProcessor(compiler)
