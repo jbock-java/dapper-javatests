@@ -24,12 +24,12 @@ javadoc {
 
 repositories {
     mavenCentral()
-    maven { url 'https://s01.oss.sonatype.org/content/repositories/iogithubjbock-java-1088' }
+    maven { url 'https://s01.oss.sonatype.org/content/repositories/iogithubjbock-java-1089' }
 }
 
 dependencies {
     def core = 'io.github.jbock-java:dapper:1.2'
-    def compiler = 'io.github.jbock-java:dapper-compiler:1.1'
+    def compiler = 'io.github.jbock-java:dapper-compiler:1.2'
     implementation(core)
     annotationProcessor(compiler)
     implementation('com.google.auto.value:auto-value-annotations:1.8.2')
