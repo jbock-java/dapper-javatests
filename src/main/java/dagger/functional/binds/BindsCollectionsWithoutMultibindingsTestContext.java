@@ -26,7 +26,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class BindsCollectionsWithoutMultibindings {
+public class BindsCollectionsWithoutMultibindingsTestContext {
   @Module
   abstract static class M {
     @Provides

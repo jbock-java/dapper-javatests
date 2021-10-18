@@ -27,7 +27,7 @@ public class BindsCollectionsWithoutMultibindingsTest {
 
     @Test
     public void works() {
-        BindsCollectionsWithoutMultibindings.C component = DaggerBindsCollectionsWithoutMultibindings_C.create();
+        BindsCollectionsWithoutMultibindingsTestContext.C component = DaggerBindsCollectionsWithoutMultibindingsTestContext_C.create();
 
         assertThat(component.set()).containsExactly("binds", "set");
         assertThat(component.map())
