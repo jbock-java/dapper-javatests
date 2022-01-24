@@ -23,15 +23,20 @@ public class NeedsFactory {
   @Inject
   NeedsFactory(
       @SuppressWarnings("unused") NeedsFactory_SomethingFactory somethingFactory,
-      @SuppressWarnings("unused") SomethingFactoryImpl somethingFactoryImpl) {}
+      @SuppressWarnings("unused") SomethingFactoryImpl somethingFactoryImpl) {
+  }
 
-  public interface SomethingFactory {}
+  public interface SomethingFactory {
+  }
 
   @AutoFactory(implementing = SomethingFactory.class, allowSubclasses = true)
-  static class Something {}
+  static class Something {
+  }
 
   public static final class SomethingFactoryImpl extends NeedsFactory_SomethingFactory {
-    @Inject SomethingFactoryImpl() {}
+    @Inject
+    SomethingFactoryImpl() {
+    }
   }
 }
 

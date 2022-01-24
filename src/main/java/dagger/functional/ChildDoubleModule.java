@@ -24,11 +24,13 @@ import java.util.List;
 @Module
 class ChildDoubleModule extends ParentModule<Double, String, List<Double>> {
 
-  @Provides Double provideDouble() {
+  @Provides
+  Double provideDouble() {
     return 3d;
   }
 
-  @Provides List<Double> provideListOfDouble() {
+  @Provides
+  List<Double> provideListOfDouble() {
     List<Double> list = new ArrayList<>();
     list.add(4d);
     return list;

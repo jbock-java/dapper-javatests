@@ -20,9 +20,11 @@ import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 @Singleton
-class ScopedGeneric<T> { 
-  final T t;  
-  @Inject ScopedGeneric(T t) {
+class ScopedGeneric<T> {
+  final T t;
+
+  @Inject
+  ScopedGeneric(T t) {
     this.t = t;
-  }  
+  }
 }

@@ -16,23 +16,24 @@
 
 package dagger.functional;
 
-import java.util.List;
 import jakarta.inject.Inject;
+import java.util.List;
 
 
-class BoundedGenerics<A extends Number & Comparable<? super A>, 
-      B extends List<? extends CharSequence>,
-      C extends List<? super String>,
-      D extends A,
-      E extends Iterable<D>> {
-  
+class BoundedGenerics<A extends Number & Comparable<? super A>,
+    B extends List<? extends CharSequence>,
+    C extends List<? super String>,
+    D extends A,
+    E extends Iterable<D>> {
+
   final A a;
   final B b;
   final C c;
   final D d;
   final E e;
-  
-  @Inject BoundedGenerics(A a, B b, C c, D d, E e) {
+
+  @Inject
+  BoundedGenerics(A a, B b, C c, D d, E e) {
     this.a = a;
     this.b = b;
     this.c = c;

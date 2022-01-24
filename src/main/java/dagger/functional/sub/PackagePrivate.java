@@ -18,6 +18,8 @@ package dagger.functional.sub;
 
 import jakarta.inject.Inject;
 
-class PackagePrivate {  
-  @Inject PackagePrivate() {}
+class PackagePrivate {
+  @Inject
+  PackagePrivate() {
+  }
 }

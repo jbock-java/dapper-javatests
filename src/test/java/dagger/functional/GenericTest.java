@@ -25,24 +25,24 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
 
-@RunWith(JUnit4.class)
-public class GenericTest {
+class GenericTest {
 
-  @Test public void testGenericComponentCreate() {
+  @Test
+  void testGenericComponentCreate() {
     GenericComponent component = DaggerGenericComponent.create();
     assertThat(component).isNotNull();
   }
-  
-  @Test public void testGenericSimpleReferences() {
+
+  @Test
+  void testGenericSimpleReferences() {
     GenericComponent component = DaggerGenericComponent.create();
-    assertThat(component.referencesGeneric().genericA.t).isNotNull();    
+    assertThat(component.referencesGeneric().genericA.t).isNotNull();
   }
-  
-  @Test public void testGenericDoubleReferences() {
+
+  @Test
+  void testGenericDoubleReferences() {
     GenericComponent component = DaggerGenericComponent.create();
     GenericDoubleReferences<A> doubleA = component.doubleGenericA();
     assertThat(doubleA.a).isNotNull();
@@ -56,21 +56,24 @@ public class GenericTest {
     assertThat(doubleB.t).isNotNull();
     assertThat(doubleB.t2).isNotNull();
   }
-  
-  @Test public void complexGenerics() {
+
+  @Test
+  void complexGenerics() {
     GenericComponent component = DaggerGenericComponent.create();
     // validate these can be called w/o exceptions.
     component.complexGenerics();
   }
-  
-  @Test public void noDepsGenerics() {
+
+  @Test
+  void noDepsGenerics() {
     GenericComponent component = DaggerGenericComponent.create();
     // validate these can be called w/o exceptions.
     component.noDepsA();
     component.noDepsB();
   }
-  
-  @Test public void boundedGenerics() {
+
+  @Test
+  void boundedGenerics() {
     BoundedGenericModule expected = new BoundedGenericModule();
     BoundedGenericComponent component = DaggerBoundedGenericComponent.create();
     BoundedGenerics<Integer, ArrayList<String>, LinkedList<CharSequence>, Integer, List<Integer>>
@@ -89,45 +92,25 @@ public class GenericTest {
     assertEquals(expected.provideDouble(), b2.d);
     assertEquals(expected.provideSetOfDouble(), b2.e);
   }
-  
-  @Test public void membersInjections() {
-    GenericComponent component = DaggerGenericComponent.create();
-    GenericChild<A> childA = new GenericChild<A>();
-    component.injectA(childA);
-    assertThat(childA.a).isNotNull();
-    assertThat(childA.b).isNotNull();
-    assertThat(childA.registeredA).isNotNull();
-    assertThat(childA.registeredB).isNotNull();
-    assertThat(childA.registeredT).isNotNull();
-    assertThat(childA.registeredX).isNotNull();
-    assertThat(childA.registeredY).isNotNull();
-    
-    GenericChild<B> childB = new GenericChild<B>();
-    component.injectB(childB);
-    assertThat(childB.a).isNotNull();
-    assertThat(childB.b).isNotNull();
-    assertThat(childB.registeredA).isNotNull();
-    assertThat(childB.registeredB).isNotNull();
-    assertThat(childB.registeredT).isNotNull();
-    assertThat(childB.registeredX).isNotNull();
-    assertThat(childB.registeredY).isNotNull();
-  }
-  
-  @Test public void packagePrivateTypeParameterDependencies() {
+
+  @Test
+  void packagePrivateTypeParameterDependencies() {
     GenericComponent component = DaggerGenericComponent.create();
     Exposed exposed = component.exposed();
     assertThat(exposed.gpp.t).isNotNull();
     assertThat(exposed.gpp2).isNotNull();
   }
-  
+
   @SuppressWarnings("rawtypes")
-  @Test public void publicSubclassWithPackagePrivateTypeParameterOfSuperclass() {
+  @Test
+  void publicSubclassWithPackagePrivateTypeParameterOfSuperclass() {
     GenericComponent component = DaggerGenericComponent.create();
     PublicSubclass publicSubclass = component.publicSubclass();
-    assertThat(((Generic)publicSubclass).t).isNotNull();
+    assertThat(((Generic) publicSubclass).t).isNotNull();
   }
 
-  @Test public void singletonScopesAppliesToEachResolvedType() {
+  @Test
+  void singletonScopesAppliesToEachResolvedType() {
     SingletonGenericComponent component = DaggerSingletonGenericComponent.create();
     ScopedGeneric<A> a = component.scopedGenericA();
     assertThat(a).isSameInstanceAs(component.scopedGenericA());
@@ -141,7 +124,7 @@ public class GenericTest {
   }
 
   @Test // See https://github.com/google/dagger/issues/671
-  public void scopedSimpleGenerics() {
+  void scopedSimpleGenerics() {
     SingletonGenericComponent component = DaggerSingletonGenericComponent.create();
     ScopedSimpleGeneric<A> a = component.scopedSimpleGenericA();
     assertThat(a).isSameInstanceAs(component.scopedSimpleGenericA());
@@ -151,8 +134,9 @@ public class GenericTest {
 
     assertThat(a).isNotSameInstanceAs(b);
   }
-  
-  @Test public void genericModules() {
+
+  @Test
+  void genericModules() {
     GenericComponent component = DaggerGenericComponent.create();
     assertThat(component.iterableInt()).containsExactly(1, 2).inOrder();
     assertThat(component.iterableDouble()).containsExactly(3d, 4d).inOrder();

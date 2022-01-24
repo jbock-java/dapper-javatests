@@ -19,4 +19,5 @@ package dagger.functional.binds;
 /**
  * This is the type that will be bound.  We throw in generics just to complicate the test.
  */
-interface Foo<T> {}
+interface Foo<T> {
+}

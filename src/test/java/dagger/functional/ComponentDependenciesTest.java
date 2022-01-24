@@ -18,26 +18,22 @@ package dagger.functional;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import dagger.Component;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests component dependencies.
  */
-@RunWith(JUnit4.class)
 public final class ComponentDependenciesTest {
 
   @Test
-  public void testSameMethodTwice() throws Exception {
+  void testSameMethodTwice() {
     ComponentDependenciesTestContext.TestComponent component =
         DaggerComponentDependenciesTestContext_TestComponent.builder().dep(() -> "test").build();
     assertThat(component.getString()).isEqualTo("test");
   }
 
   @Test
-  public void testPolymorphicOverridesStillCompiles() throws Exception {
+  void testPolymorphicOverridesStillCompiles() {
     ComponentDependenciesTestContext.TestOverrideComponent component =
         DaggerComponentDependenciesTestContext_TestOverrideComponent.builder().dep(() -> "test").build();
     assertThat(component.getString()).isEqualTo("test");

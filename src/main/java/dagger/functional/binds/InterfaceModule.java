@@ -21,5 +21,6 @@ import dagger.Module;
 
 @Module
 interface InterfaceModule {
-  @Binds Foo<Object> bindFooOfObjects(FooOfObjects impl);
+  @Binds
+  Foo<Object> bindFooOfObjects(FooOfObjects impl);
 }

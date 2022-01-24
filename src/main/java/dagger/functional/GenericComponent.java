@@ -22,26 +22,30 @@ import dagger.Provides;
 import dagger.functional.GenericComponent.NongenericModule;
 import dagger.functional.sub.Exposed;
 import dagger.functional.sub.PublicSubclass;
+import jakarta.inject.Provider;
 import java.util.Arrays;
 import java.util.List;
-import jakarta.inject.Provider;
 
 @Component(modules = {ChildDoubleModule.class, ChildIntegerModule.class, NongenericModule.class})
 interface GenericComponent {
   ReferencesGeneric referencesGeneric();
+
   GenericDoubleReferences<A> doubleGenericA();
+
   GenericDoubleReferences<B> doubleGenericB();
+
   ComplexGenerics complexGenerics();
+
   GenericNoDeps<A> noDepsA();
+
   GenericNoDeps<B> noDepsB();
 
-  void injectA(GenericChild<A> childA);
-  void injectB(GenericChild<B> childB);
-
   Exposed exposed();
+
   PublicSubclass publicSubclass();
-  
+
   Iterable<Integer> iterableInt();
+
   Iterable<Double> iterableDouble();
 
   Provider<List<String>> stringsProvider(); // b/71595104

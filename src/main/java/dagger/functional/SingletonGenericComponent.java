@@ -22,11 +22,11 @@ import jakarta.inject.Singleton;
 @Singleton
 @Component
 interface SingletonGenericComponent {
-  
+
   ScopedGeneric<A> scopedGenericA();
 
   ScopedGeneric<B> scopedGenericB();
-  
+
   ScopedSimpleGeneric<A> scopedSimpleGenericA();
 
   ScopedSimpleGeneric<B> scopedSimpleGenericB();

@@ -19,5 +19,7 @@ package dagger.functional;
 import jakarta.inject.Inject;
 
 class A {
-  @Inject A() {}
+  @Inject
+  A() {
+  }
 }

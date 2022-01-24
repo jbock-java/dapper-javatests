@@ -20,32 +20,43 @@ import jakarta.inject.Inject;
 import jakarta.inject.Provider;
 
 class GenericParent<X, Y> {
-  
-  Provider<X> registeredX;
-  Y registeredY;
-  B registeredB;
-  Parameterized<Y> registerParameterizedOfY;
-  
-  @Inject GenericParent() {}
-  
-  @Inject Provider<X> x;
-  @Inject Y y;
-  @Inject B b;
-  @Inject Parameterized<X> parameterizedOfX;
+
+  final Provider<X> registeredX;
+  final Y registeredY;
+  final B registeredB;
+  final Parameterized<Y> registerParameterizedOfY;
+  final Provider<X> x;
+  final Y y;
+  final B b;
+  final Parameterized<X> parameterizedOfX;
 
   @Inject
-  void registerX(Provider<X> x) {
-    this.registeredX = x;
+  GenericParent(
+      Provider<X> registeredX,
+      Y registeredY,
+      B registeredB,
+      Parameterized<Y> registerParameterizedOfY,
+      Provider<X> x,
+      Y y,
+      B b,
+      Parameterized<X> parameterizedOfX) {
+    this.registeredX = registeredX;
+    this.registeredY = registeredY;
+    this.registeredB = registeredB;
+    this.registerParameterizedOfY = registerParameterizedOfY;
+    this.x = x;
+    this.y = y;
+    this.b = b;
+    this.parameterizedOfX = parameterizedOfX;
   }
-  @Inject void registerY(Y y) { this.registeredY = y; }
-  @Inject void registerB(B b) { this.registeredB = b; }
-  @Inject void registerParameterizedOfY(Parameterized<Y> parameterizedOfY) {
-    this.registerParameterizedOfY = parameterizedOfY;
-  }
+
 
   static class Parameterized<P> {
-    @Inject P p;
+    private final P p;
 
-    @Inject Parameterized() {}
+    @Inject
+    Parameterized(P p) {
+      this.p = p;
+    }
   }
 }

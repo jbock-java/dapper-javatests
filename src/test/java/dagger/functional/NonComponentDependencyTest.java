@@ -18,13 +18,11 @@ package dagger.functional;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
 
-@RunWith(JUnit4.class)
-public class NonComponentDependencyTest {
-  @Test public void testThing() {
+class NonComponentDependencyTest {
+  @Test
+  void testThing() {
     NonComponentDependencyComponent component =
         DaggerNonComponentDependencyComponent.builder()
             .thingComponent(new NonComponentDependencyComponent.ThingComponentImpl())

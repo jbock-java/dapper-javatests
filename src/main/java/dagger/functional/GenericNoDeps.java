@@ -20,7 +20,9 @@ import jakarta.inject.Inject;
 
 
 class GenericNoDeps<T> {
-  
-  @Inject GenericNoDeps() {}
+
+  @Inject
+  GenericNoDeps() {
+  }
 
 }

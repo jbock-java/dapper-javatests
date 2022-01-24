@@ -21,7 +21,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Provider;
 
 class ComplexGenerics {
-  
+
   final Generic2<Generic<A>> g2ga;
   final Lazy<Generic2<Generic<A>>> g2gaLazy;
   final Provider<Generic2<Generic<A>>> g2gaProvider;
@@ -31,8 +31,9 @@ class ComplexGenerics {
   final Generic2<A> g2a;
   final Generic<Generic2<A>> gg2a;
   final Generic<Generic2<B>> gg2b;
-  
-  @Inject ComplexGenerics(
+
+  @Inject
+  ComplexGenerics(
       Generic2<Generic<A>> g2ga,
       Lazy<Generic2<Generic<A>>> g2gaLazy,
       Provider<Generic2<Generic<A>>> g2gaProvider,

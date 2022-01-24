@@ -24,15 +24,15 @@ import jakarta.inject.Provider;
 
 public class Exposed {
 
-  @Inject public PackagePrivate pp2;
-  @Inject public Provider<PackagePrivate> ppp2;
-  @Inject public Lazy<PackagePrivate> lpp2;
-  @Inject public Provider<Lazy<PackagePrivate>> plpp2;
-  @Inject public Generic2<PackagePrivate> gpp2;
-  @Inject public Generic2<PackagePrivateContainer.PublicEnclosed> gppc2;
-  @Inject public Provider<Generic2<PackagePrivate>> pgpp2;
-  @Inject public Lazy<Generic2<PackagePrivate>> lgpp2;
-  @Inject public Provider<Lazy<Generic2<PackagePrivate>>> plgpp2;
+  public final PackagePrivate pp2;
+  public final Provider<PackagePrivate> ppp2;
+  public final Lazy<PackagePrivate> lpp2;
+  public final Provider<Lazy<PackagePrivate>> plpp2;
+  public final Generic2<PackagePrivate> gpp2;
+  public final Generic2<PackagePrivateContainer.PublicEnclosed> gppc2;
+  public final Provider<Generic2<PackagePrivate>> pgpp2;
+  public final Lazy<Generic2<PackagePrivate>> lgpp2;
+  public final Provider<Lazy<Generic2<PackagePrivate>>> plgpp2;
 
   public PackagePrivate pp;
   public Provider<PackagePrivate> ppp;
@@ -45,7 +45,17 @@ public class Exposed {
   public Provider<Lazy<Generic<PackagePrivate>>> plgpp;
 
   /** Injects inaccessible dependencies to test casting of these dependency arguments. */
-  @Inject Exposed(
+  @Inject
+  Exposed(
+      PackagePrivate pp2,
+      Provider<PackagePrivate> ppp2,
+      Lazy<PackagePrivate> lpp2,
+      Provider<Lazy<PackagePrivate>> plpp2,
+      Generic2<PackagePrivate> gpp2,
+      Generic2<PackagePrivateContainer.PublicEnclosed> gppc2,
+      Provider<Generic2<PackagePrivate>> pgpp2,
+      Lazy<Generic2<PackagePrivate>> lgpp2,
+      Provider<Lazy<Generic2<PackagePrivate>>> plgpp2,
       PackagePrivate pp,
       Provider<PackagePrivate> ppp,
       Lazy<PackagePrivate> lpp,
@@ -55,6 +65,15 @@ public class Exposed {
       Provider<Generic<PackagePrivate>> pgpp,
       Lazy<Generic<PackagePrivate>> lgpp,
       Provider<Lazy<Generic<PackagePrivate>>> plgpp) {
+    this.pp2 = pp2;
+    this.ppp2 = ppp2;
+    this.lpp2 = lpp2;
+    this.plpp2 = plpp2;
+    this.gpp2 = gpp2;
+    this.gppc2 = gppc2;
+    this.pgpp2 = pgpp2;
+    this.lgpp2 = lgpp2;
+    this.plgpp2 = plgpp2;
     this.pp = pp;
     this.ppp = ppp;
     this.lpp = lpp;

@@ -17,7 +17,6 @@
 package dagger.functional;
 
 import dagger.Lazy;
-import dagger.MembersInjector;
 import jakarta.inject.Provider;
 
 /**
@@ -25,9 +24,12 @@ import jakarta.inject.Provider;
  */
 interface Injector<T> {
   T instance();
+
   Provider<T> provider();
+
   Lazy<T> lazy();
-  MembersInjector<T> membersInjector();
+
   void injectMembers(T t);
+
   T injectMembersAndReturn(T t);
 }

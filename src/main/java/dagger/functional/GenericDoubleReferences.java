@@ -24,7 +24,8 @@ class GenericDoubleReferences<T> {
   final Thing a;
   final Thing a2;
 
-  @Inject GenericDoubleReferences(T t, Thing a, T t2, Thing a2) {
+  @Inject
+  GenericDoubleReferences(T t, Thing a, T t2, Thing a2) {
     this.t = t;
     this.a = a;
     this.t2 = t2;

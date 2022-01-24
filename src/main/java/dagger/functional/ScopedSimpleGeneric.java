@@ -29,5 +29,6 @@ import jakarta.inject.Singleton;
 @Singleton
 class ScopedSimpleGeneric<T> {
   @Inject
-  ScopedSimpleGeneric() {}
+  ScopedSimpleGeneric() {
+  }
 }

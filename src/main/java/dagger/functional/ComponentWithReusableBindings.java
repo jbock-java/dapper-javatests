@@ -28,10 +28,12 @@ import jakarta.inject.Qualifier;
 interface ComponentWithReusableBindings {
 
   @Qualifier
-  @interface InParent {}
+  @interface InParent {
+  }
 
   @Qualifier
-  @interface InChildren {}
+  @interface InChildren {
+  }
 
   @InParent
   Object reusableInParent();

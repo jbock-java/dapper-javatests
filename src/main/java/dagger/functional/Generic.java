@@ -21,7 +21,8 @@ import jakarta.inject.Inject;
 public class Generic<T> {
   final T t;
 
-  @Inject public Generic(T t) {
+  @Inject
+  public Generic(T t) {
     this.t = t;
   }
 }

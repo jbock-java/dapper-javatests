@@ -18,8 +18,10 @@ package dagger.functional.sub;
 
 import jakarta.inject.Inject;
 
-class PackagePrivateContainer {  
+class PackagePrivateContainer {
   public static class PublicEnclosed {
-    @Inject PublicEnclosed() {}
+    @Inject
+    PublicEnclosed() {
+    }
   }
 }

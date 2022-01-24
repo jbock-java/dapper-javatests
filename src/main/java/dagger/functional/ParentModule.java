@@ -24,7 +24,8 @@ import java.util.Set;
 
 @Module
 abstract class ParentModule<A extends Number & Comparable<A>, B, C extends Iterable<A>> {
-  @Provides Iterable<A> provideIterableOfAWithC(A a, C c) {
+  @Provides
+  Iterable<A> provideIterableOfAWithC(A a, C c) {
     List<A> list = new ArrayList<>();
     list.add(a);
     for (A elt : c) {
@@ -33,7 +34,8 @@ abstract class ParentModule<A extends Number & Comparable<A>, B, C extends Itera
     return list;
   }
 
-  @Provides static char provideNonGenericBindingInParameterizedModule() {
+  @Provides
+  static char provideNonGenericBindingInParameterizedModule() {
     return 'c';
   }
 

@@ -30,7 +30,8 @@ interface NonComponentDependencyComponent {
     ThingTwo(
         Thing thing,
         NonComponentDependencyComponent nonComponentDependencyComponent,
-        NonComponentDependencyComponent.ThingComponent thingComponent) {}
+        NonComponentDependencyComponent.ThingComponent thingComponent) {
+    }
   }
 
   // A non-component interface which this interface depends upon.

@@ -19,5 +19,7 @@ package dagger.functional.binds;
 import jakarta.inject.Inject;
 
 final class FooOfObjects implements Foo<Object> {
-  @Inject FooOfObjects() {}
+  @Inject
+  FooOfObjects() {
+  }
 }

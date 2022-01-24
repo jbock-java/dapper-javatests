@@ -16,23 +16,20 @@
 
 package dagger.functional.binds;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-
 import static com.google.common.truth.Truth.assertThat;
 
-@RunWith(JUnit4.class)
-public class BindsCollectionsWithoutMultibindingsTest {
+import org.junit.jupiter.api.Test;
 
-    @Test
-    public void works() {
-        BindsCollectionsWithoutMultibindingsTestContext.C component = DaggerBindsCollectionsWithoutMultibindingsTestContext_C.create();
+class BindsCollectionsWithoutMultibindingsTest {
 
-        assertThat(component.set()).containsExactly("binds", "set");
-        assertThat(component.map())
-                .containsExactly(
-                        "binds", "map",
-                        "without", "multibindings");
-    }
+  @Test
+  void works() {
+    BindsCollectionsWithoutMultibindingsTestContext.C component = DaggerBindsCollectionsWithoutMultibindingsTestContext_C.create();
+
+    assertThat(component.set()).containsExactly("binds", "set");
+    assertThat(component.map())
+        .containsExactly(
+            "binds", "map",
+            "without", "multibindings");
+  }
 }

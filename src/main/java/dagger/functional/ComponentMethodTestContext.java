@@ -29,19 +29,22 @@ public final class ComponentMethodTestContext {
   static final class Dep1 {
 
     @Inject
-    Dep1(Dep2 dep2) {}
+    Dep1(Dep2 dep2) {
+    }
   }
 
   static final class Dep2 {
 
     @Inject
-    Dep2(Dep3 dep3) {}
+    Dep2(Dep3 dep3) {
+    }
   }
 
   static final class Dep3 {
 
     @Inject
-    Dep3() {}
+    Dep3() {
+    }
   }
 
   @Component

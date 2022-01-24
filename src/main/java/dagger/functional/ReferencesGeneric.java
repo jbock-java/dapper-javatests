@@ -20,8 +20,9 @@ import jakarta.inject.Inject;
 
 class ReferencesGeneric {
   final Generic<A> genericA;
-  
-  @Inject ReferencesGeneric(Generic<A> genericA) {
+
+  @Inject
+  ReferencesGeneric(Generic<A> genericA) {
     this.genericA = genericA;
   }
 }

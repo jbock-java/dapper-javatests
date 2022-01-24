@@ -20,5 +20,6 @@ import jakarta.inject.Inject;
 
 final class FooOfStrings implements Foo<String> {
   @Inject
-  FooOfStrings() {}
+  FooOfStrings() {
+  }
 }

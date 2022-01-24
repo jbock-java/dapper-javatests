@@ -20,5 +20,7 @@ import dagger.functional.sub.OtherThing;
 import jakarta.inject.Inject;
 
 final class Thing {
-  @Inject Thing(@SuppressWarnings("unused") OtherThing unused) {}
+  @Inject
+  Thing(@SuppressWarnings("unused") OtherThing unused) {
+  }
 }

@@ -20,7 +20,8 @@ import dagger.functional.Generic;
 import jakarta.inject.Inject;
 
 public class PublicSubclass extends Generic<PackagePrivate> {
-  @Inject public PublicSubclass(PackagePrivate pp) {
+  @Inject
+  public PublicSubclass(PackagePrivate pp) {
     super(pp);
   }
 }

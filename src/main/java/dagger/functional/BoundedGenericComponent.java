@@ -25,7 +25,8 @@ import java.util.Set;
 @Component(modules = BoundedGenericModule.class)
 interface BoundedGenericComponent {
   BoundedGenerics<Integer, ArrayList<String>, LinkedList<CharSequence>, Integer, List<Integer>>
-      bounds1();
+  bounds1();
+
   BoundedGenerics<Double, LinkedList<String>, LinkedList<Comparable<String>>, Double, Set<Double>>
-      bounds2();
+  bounds2();
 }

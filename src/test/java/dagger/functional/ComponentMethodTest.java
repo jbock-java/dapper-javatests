@@ -16,19 +16,16 @@
 
 package dagger.functional;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
 
 /**
  * This is a regression test that makes sure component method order does not affect initialization
  * order.
  */
-@RunWith(JUnit4.class)
 public final class ComponentMethodTest {
 
   @Test
-  public void testNonTopologicalOrderComponent() throws Exception {
+  void testNonTopologicalOrderComponent() {
     ComponentMethodTestContext.NonTopologicalOrderComponent component =
         DaggerComponentMethodTestContext_NonTopologicalOrderComponent.create();
     component.dep1Provider().get();
@@ -36,7 +33,7 @@ public final class ComponentMethodTest {
   }
 
   @Test
-  public void testTopologicalOrderComponent() throws Exception {
+  void testTopologicalOrderComponent() {
     ComponentMethodTestContext.TopologicalOrderComponent component =
         DaggerComponentMethodTestContext_TopologicalOrderComponent.create();
     component.dep1Provider().get();

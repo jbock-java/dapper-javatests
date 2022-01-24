@@ -20,5 +20,6 @@ import jakarta.inject.Inject;
 
 public final class OtherThing {
   @Inject
-  public OtherThing(@SuppressWarnings("unused") int i) {}
+  public OtherThing(@SuppressWarnings("unused") int i) {
+  }
 }

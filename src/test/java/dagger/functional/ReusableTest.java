@@ -20,14 +20,11 @@ import static com.google.common.truth.Truth.assertThat;
 
 import dagger.functional.ComponentWithReusableBindings.ChildOne;
 import dagger.functional.ComponentWithReusableBindings.ChildTwo;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.junit.jupiter.api.Test;
 
-@RunWith(JUnit4.class)
-public class ReusableTest {
+class ReusableTest {
   @Test
-  public void testReusable() {
+  void testReusable() {
     ComponentWithReusableBindings parent = DaggerComponentWithReusableBindings.create();
     ChildOne childOne = parent.childOne();
     ChildTwo childTwo = parent.childTwo();
