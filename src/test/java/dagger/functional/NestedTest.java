@@ -16,14 +16,14 @@
 
 package dagger.functional;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class NestedTest {
   @Test
   void nestedFoo() {
     OuterClassFoo.NestedComponent nestedFoo = DaggerOuterClassFoo_NestedComponent.create();
-    assertThat(nestedFoo.thing()).isNotNull();
+    assertNotNull(nestedFoo.thing());
   }
 }

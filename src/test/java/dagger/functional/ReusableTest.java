@@ -16,11 +16,12 @@
 
 package dagger.functional;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import dagger.functional.ComponentWithReusableBindings.ChildOne;
 import dagger.functional.ComponentWithReusableBindings.ChildTwo;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 class ReusableTest {
   @Test
@@ -30,16 +31,16 @@ class ReusableTest {
     ChildTwo childTwo = parent.childTwo();
 
     Object reusableInParent = parent.reusableInParent();
-    assertThat(parent.reusableInParent()).isSameInstanceAs(reusableInParent);
-    assertThat(childOne.reusableInParent()).isSameInstanceAs(reusableInParent);
-    assertThat(childTwo.reusableInParent()).isSameInstanceAs(reusableInParent);
+    assertSame(reusableInParent, parent.reusableInParent());
+    assertSame(reusableInParent, childOne.reusableInParent());
+    assertSame(reusableInParent, childTwo.reusableInParent());
 
     Object reusableFromChildOne = childOne.reusableInChild();
-    assertThat(childOne.reusableInChild()).isSameInstanceAs(reusableFromChildOne);
+    assertSame(reusableFromChildOne, childOne.reusableInChild());
 
     Object reusableFromChildTwo = childTwo.reusableInChild();
-    assertThat(childTwo.reusableInChild()).isSameInstanceAs(reusableFromChildTwo);
+    assertSame(reusableFromChildTwo, childTwo.reusableInChild());
 
-    assertThat(reusableFromChildTwo).isNotSameInstanceAs(reusableFromChildOne);
+    assertNotSame(reusableFromChildOne, reusableFromChildTwo);
   }
 }

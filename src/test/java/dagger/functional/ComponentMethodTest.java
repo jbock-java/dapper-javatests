@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
  * This is a regression test that makes sure component method order does not affect initialization
  * order.
  */
-public final class ComponentMethodTest {
+final class ComponentMethodTest {
 
   @Test
   void testNonTopologicalOrderComponent() {

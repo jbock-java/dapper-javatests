@@ -17,7 +17,9 @@
 package dagger.functional;
 
 import static com.google.common.truth.Truth.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -29,13 +31,13 @@ public final class ComponentDependenciesTest {
   void testSameMethodTwice() {
     ComponentDependenciesTestContext.TestComponent component =
         DaggerComponentDependenciesTestContext_TestComponent.builder().dep(() -> "test").build();
-    assertThat(component.getString()).isEqualTo("test");
+    assertEquals("test", component.getString());
   }
 
   @Test
   void testPolymorphicOverridesStillCompiles() {
     ComponentDependenciesTestContext.TestOverrideComponent component =
         DaggerComponentDependenciesTestContext_TestOverrideComponent.builder().dep(() -> "test").build();
-    assertThat(component.getString()).isEqualTo("test");
+    assertEquals("test", component.getString());
   }
 }

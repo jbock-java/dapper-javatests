@@ -16,9 +16,9 @@
 
 package dagger.functional;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class NonComponentDependencyTest {
   @Test
@@ -27,7 +27,7 @@ class NonComponentDependencyTest {
         DaggerNonComponentDependencyComponent.builder()
             .thingComponent(new NonComponentDependencyComponent.ThingComponentImpl())
             .build();
-    assertThat(component).isNotNull();
-    assertThat(component.thingTwo()).isNotNull();
+    assertNotNull(component);
+    assertNotNull(component.thingTwo());
   }
 }

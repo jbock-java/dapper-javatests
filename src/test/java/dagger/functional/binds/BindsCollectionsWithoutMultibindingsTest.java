@@ -16,9 +16,12 @@
 
 package dagger.functional.binds;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import java.util.Map;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BindsCollectionsWithoutMultibindingsTest {
 
@@ -26,10 +29,8 @@ class BindsCollectionsWithoutMultibindingsTest {
   void works() {
     BindsCollectionsWithoutMultibindingsTestContext.C component = DaggerBindsCollectionsWithoutMultibindingsTestContext_C.create();
 
-    assertThat(component.set()).containsExactly("binds", "set");
-    assertThat(component.map())
-        .containsExactly(
-            "binds", "map",
-            "without", "multibindings");
+    assertEquals(Set.of("binds", "set"), component.set());
+    assertEquals(Map.of("binds", "map",
+        "without", "multibindings"), component.map());
   }
 }

@@ -16,9 +16,9 @@
 
 package dagger.functional;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * @see <a href="http://b/19435358">Bug 19435358</a>
@@ -26,6 +26,6 @@ import org.junit.jupiter.api.Test;
 class DependsOnGeneratedCodeTest {
   @Test
   void testComponentDependsOnGeneratedCode() {
-    assertThat(DaggerComponentDependsOnGeneratedCode.create().needsFactory()).isNotNull();
+    assertNotNull(DaggerComponentDependsOnGeneratedCode.create().needsFactory());
   }
 }
