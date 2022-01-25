@@ -16,11 +16,9 @@
 
 package dagger.functional;
 
-import static com.google.common.truth.Truth.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Tests component dependencies.
